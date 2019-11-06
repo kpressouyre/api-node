@@ -72,6 +72,41 @@
                     }
                 }
             }
+        },
+        "/bestBuy/{skuProduct}":{
+            "get": {
+                "tags": ["Best Buy"],
+                "summary": "Get info of Best Buy product",
+                "description": "Get info of Best Buy product",
+                "parameters": [
+                    {
+                      "name": "skuProduct",
+                      "in": "path",
+                      "description": "Sku product who wants information",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the info of product.",
+                       
+                        "schema": {
+                            "type": "string",
+                            "items": {
+                                "properties": {
+                                    "product": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
+
     }
 }

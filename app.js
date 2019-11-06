@@ -10,6 +10,7 @@ var swaggerDocument = require('./swagger.json');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var dicesRouter = require('./routes/dices');
+var apiBestBuyRouter = require('./routes/apiBestBuy');
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/', indexRouter);
 app.use('/api/users', usersRouter);
 app.use('/api/dices', dicesRouter);
+app.use('/api/bestBuy', apiBestBuyRouter);
 //app.use('/api/v1', usersRouter);
 
 // catch 404 and forward to error handler
