@@ -1,0 +1,77 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Simple API",
+        "description": "A simple API to learn how to write OpenAPI Specification"
+    },
+    "schemes": [
+        "http"
+    ],
+    "host": "localhost:3000",
+    "basePath": "/api",
+    "paths": {
+        "/users": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "Gets list of Users",
+                "description": "Returns a list containing all users.",
+                "responses": {
+                    "200": {
+                        "description": "A list of Users",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/dices/{numberDice}":{
+            "get": {
+                "tags": ["Dices"],
+                "summary": "Rolls X dices",
+                "description": "Rolls X dices",
+                "parameters": [
+                    {
+                      "name": "numberDice",
+                      "in": "path",
+                      "description": "Number of dice you want to roll",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the result by dice.",
+                       
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "diceResult": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
