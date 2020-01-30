@@ -8,6 +8,16 @@
     "schemes": [
         "http"
     ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "security": [{
+        "Bearer": []
+    }],
     "host": "localhost:3000",
     "basePath": "/api",
     "paths": {
@@ -30,6 +40,103 @@
                                         "type": "string"
                                     },
                                     "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/testAuth": {
+            "get": {
+                "tags": ["Users"],
+                "summary": "",
+                "description": "",
+                "responses": {
+                    "200": {
+                        "description": "A list of Users",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/users/register": {
+            "post": {
+                "tags": ["Users"],
+                "summary": "Register an user",
+                "description": "Register an user.",
+                "parameters": [
+                    {
+                      "name": "firstName",
+                      "in": "formData",
+                      "description": "First name of user",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "lastName",
+                      "in": "formData",
+                      "description": "Last name of user",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "email",
+                      "in": "formData",
+                      "description": "email",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    },
+                    {
+                      "name": "password",
+                      "in": "formData",
+                      "description": "password",
+                      "required": true,
+                      "schema": {
+                        "type": "string"
+                      }
+                    }
+                  ],
+                "responses": {
+                    "200": {
+                        "description": "Register user",
+                        "schema": {
+                            "type": "user",
+                            "items": {
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string"
+                                    },
+                                    "password": {
                                         "type": "string"
                                     }
                                 }
